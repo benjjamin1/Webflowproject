@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main # Branch where content changes will be committed
+
+media_folder: "static/images/uploads" # Folder where images will be stored
+public_folder: "/images/uploads"      # Public path to those images
+
+collections:                          # This is where you define the structure of your content
+  - name: "blog"                      # Name of the collection
+    label: "Blog"                     # Label in the CMS UI
+    folder: "content/blog"            # Folder where the blog posts live
+    create: true                      # Allow users to create new posts
+    slug: "{{slug}}"                  # URL structure
+    fields:                           # The fields for each post
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
