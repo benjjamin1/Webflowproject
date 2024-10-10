@@ -1,17 +1,64 @@
 backend:
   name: git-gateway
-  branch: master # Branch where content changes will be committed
+  branch: main  # or "master" depending on your default branch
 
-media_folder: "static/images/uploads" # Folder where images will be stored
-public_folder: "/images/uploads"      # Public path to those images
+media_folder: "static/images/uploads"  # Where uploaded files will be stored in your repo
+public_folder: "/images/uploads"  # Public URL for the uploaded files
 
-collections:                          # This is where you define the structure of your content
-  - name: "blog"                      # Name of the collection
-    label: "Blog"                     # Label in the CMS UI
-    folder: "content/blog"            # Folder where the blog posts live
-    create: true                      # Allow users to create new posts
-    slug: "{{slug}}"                  # URL structure
-    fields:                           # The fields for each post
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+collections:
+  - name: "destinations"
+    label: "Destinations"
+    folder: "content/destinations"  # Where destination entries will be stored
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string", required: true }
+      - { label: "Location", name: "location", widget: "string", required: true }
+      - { label: "Ranking", name: "ranking", widget: "number", required: true, min: 1, max: 5 }
+      - { label: "Images", name: "images", widget: "image", multiple: true, required: true }  # Multi-image support
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: true }
+
+  - name: "wellbeing_hotels"
+    label: "Wellbeing Hotels"
+    folder: "content/wellbeing_hotels"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Hotel Name", name: "hotel_name", widget: "string", required: true }
+      - { label: "Location", name: "location", widget: "string", required: true }
+      - { label: "Description", name: "description", widget: "text", required: true }
+      - { label: "Images", name: "images", widget: "image", multiple: true }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: true }
+
+  - name: "retreats"
+    label: "Retreats"
+    folder: "content/retreats"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Retreat Name", name: "retreat_name", widget: "string", required: true }
+      - { label: "Location", name: "location", widget: "string", required: true }
+      - { label: "Date", name: "date", widget: "datetime", required: true }
+      - { label: "Description", name: "description", widget: "markdown", required: true }
+
+  - name: "online_classes"
+    label: "Online Classes"
+    folder: "content/online_classes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Class Title", name: "class_title", widget: "string", required: true }
+      - { label: "Instructor", name: "instructor", widget: "string", required: true }
+      - { label: "Date", name: "date", widget: "datetime", required: true }
+      - { label: "Description", name: "description", widget: "markdown", required: true }
+
+  - name: "wellbeing_inspirations"
+    label: "Wellbeing Inspirations"
+    folder: "content/wellbeing_inspirations"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Inspiration Title", name: "inspiration_title", widget: "string", required: true }
+      - { label: "Category", name: "category", widget: "string", required: true }
+      - { label: "Date", name: "date", widget: "datetime", required: true }
+      - { label: "Content", name: "content", widget: "markdown", required: true }
