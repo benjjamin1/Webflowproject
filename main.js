@@ -1,5 +1,5 @@
 // Fetch the dynamic content and insert it into the page
-fetch('/content/destinations/my-destination.md')
+fetch('/content/destinations/scandinavia.md')
   .then(response => response.text())  // Get the file content as text
   .then(markdownText => {
     // Convert the markdown to HTML
