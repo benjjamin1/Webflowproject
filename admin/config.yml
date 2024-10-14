@@ -1,64 +1,38 @@
 backend:
   name: git-gateway
-  branch: master  # or "master" depending on your default branch
+  branch: master # or the branch you're using
 
-media_folder: "static/images/uploads"  # Where uploaded files will be stored in your repo
-public_folder: "/images/uploads"  # Public URL for the uploaded files
+media_folder: "static/images" # Path where uploaded images will be stored
+public_folder: "/images"      # Public path for the images
 
 collections:
-  - name: "destinations"
-    label: "Destinations"
-    folder: "content/destinations"  # Where destination entries will be stored
+  - name: "headings"
+    label: "Headings"
+    folder: "content/headings"
     create: true
-    slug: "{{slug}}"
     fields:
-      - { label: "Name", name: "name", widget: "string", required: true }
-      - { label: "Location", name: "location", widget: "string", required: true }
-      - { label: "Ranking", name: "ranking", widget: "number", required: true, min: 1, max: 5 }
-      - { label: "Images", name: "images", widget: "image", multiple: true, required: true }  # Multi-image support
-      - { label: "Featured Image", name: "featured_image", widget: "image", required: true }
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Heading Content", name: "content", widget: "text"}
+      
+  - name: "paragraphs"
+    label: "Paragraphs"
+    folder: "content/paragraphs"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Paragraph Text", name: "text", widget: "markdown"}
+  
+  - name: "images"
+    label: "Images"
+    folder: "content/images"
+    create: true
+    fields:
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Alt Text", name: "alt", widget: "string"}
 
-  - name: "wellbeing_hotels"
-    label: "Wellbeing Hotels"
-    folder: "content/wellbeing_hotels"
+  - name: "multi-images"
+    label: "Multi Images"
+    folder: "content/multi-images"
     create: true
-    slug: "{{slug}}"
     fields:
-      - { label: "Hotel Name", name: "hotel_name", widget: "string", required: true }
-      - { label: "Location", name: "location", widget: "string", required: true }
-      - { label: "Description", name: "description", widget: "text", required: true }
-      - { label: "Images", name: "images", widget: "image", multiple: true }
-      - { label: "Featured Image", name: "featured_image", widget: "image", required: true }
-
-  - name: "retreats"
-    label: "Retreats"
-    folder: "content/retreats"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Retreat Name", name: "retreat_name", widget: "string", required: true }
-      - { label: "Location", name: "location", widget: "string", required: true }
-      - { label: "Date", name: "date", widget: "datetime", required: true }
-      - { label: "Description", name: "description", widget: "markdown", required: true }
-
-  - name: "online_classes"
-    label: "Online Classes"
-    folder: "content/online_classes"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Class Title", name: "class_title", widget: "string", required: true }
-      - { label: "Instructor", name: "instructor", widget: "string", required: true }
-      - { label: "Date", name: "date", widget: "datetime", required: true }
-      - { label: "Description", name: "description", widget: "markdown", required: true }
-
-  - name: "wellbeing_inspirations"
-    label: "Wellbeing Inspirations"
-    folder: "content/wellbeing_inspirations"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Inspiration Title", name: "inspiration_title", widget: "string", required: true }
-      - { label: "Category", name: "category", widget: "string", required: true }
-      - { label: "Date", name: "date", widget: "datetime", required: true }
-      - { label: "Content", name: "content", widget: "markdown", required: true }
+      - {label: "Gallery", name: "gallery", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
