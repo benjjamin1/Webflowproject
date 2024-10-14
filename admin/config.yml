@@ -6,33 +6,52 @@ media_folder: "static/images" # Path where uploaded images will be stored
 public_folder: "/images"      # Public path for the images
 
 collections:
-  - name: "headings"
-    label: "Headings"
-    folder: "content/headings"
+  - name: "destinations"
+    label: "Destinations"
+    folder: "content/destinations"
     create: true
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Heading Content", name: "content", widget: "text"}
-      
-  - name: "paragraphs"
-    label: "Paragraphs"
-    folder: "content/paragraphs"
-    create: true
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Paragraph Text", name: "text", widget: "markdown"}
-  
-  - name: "images"
-    label: "Images"
-    folder: "content/images"
-    create: true
-    fields:
+      - {label: "Name", name: "name", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
-      - {label: "Alt Text", name: "alt", widget: "string"}
+      - {label: "Multi Image", name: "multi_image", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+      - {label: "Overview Text", name: "overview_text", widget: "markdown"}
 
-  - name: "multi-images"
-    label: "Multi Images"
-    folder: "content/multi-images"
+  - name: "wellbeing_hotels"
+    label: "Wellbeing Hotels"
+    folder: "content/wellbeing-hotels"
     create: true
     fields:
-      - {label: "Gallery", name: "gallery", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Multi Image", name: "multi_image", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+      - {label: "Overview Text", name: "overview_text", widget: "markdown"}
+
+  - name: "retreats"
+    label: "Retreats"
+    folder: "content/retreats"
+    create: true
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Multi Image", name: "multi_image", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+      - {label: "Overview Text", name: "overview_text", widget: "markdown"}
+
+  - name: "online_classes"
+    label: "Online Classes"
+    folder: "content/online-classes"
+    create: true
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Multi Image", name: "multi_image", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+      - {label: "Overview Text", name: "overview_text", widget: "markdown"}
+
+  - name: "wellbeing_inspirations"
+    label: "Wellbeing Inspirations"
+    folder: "content/wellbeing-inspirations"
+    create: true
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Multi Image", name: "multi_image", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+      - {label: "Overview Text", name: "overview_text", widget: "markdown"}
